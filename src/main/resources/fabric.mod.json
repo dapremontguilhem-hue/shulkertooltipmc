@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "shulkerview",
+  "version": "${version}",
+  "name": "Shulker View",
+  "description": "Ajoute au tooltip des shulker boxes un aperçu visuel de leur contenu, en gardant le tooltip vanilla.",
+  "authors": ["Toi"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.shulkerview.ShulkerViewClient"]
+  },
+  "mixins": [
+    { "config": "shulkerview.client.mixins.json", "environment": "client" }
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
