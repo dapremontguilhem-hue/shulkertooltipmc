@@ -1,8 +1,8 @@
 package com.shulkerview.mixin;
 
 import com.shulkerview.ShulkerTooltipData;
-import net.minecraft.client.item.TooltipData;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -12,10 +12,6 @@ import java.util.Optional;
 
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
-    /**
-     * On ne touche pas aux lignes de texte (tooltip vanilla conservé) :
-     * on ajoute seulement des "données de tooltip" pour les shulker boxes.
-     */
     @Inject(method = "getTooltipData", at = @At("RETURN"), cancellable = true)
     private void shulkerview$addShulkerPreview(CallbackInfoReturnable<Optional<TooltipData>> cir) {
         if (cir.getReturnValue().isPresent()) return;
